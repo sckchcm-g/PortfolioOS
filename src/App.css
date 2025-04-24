@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+.mainpage-bg {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.main-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  align-items: stretch;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  max-height: none;
+  box-sizing: border-box;
+}
+
+.terminal-panel, .preview-panel {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.terminal-panel {
+  width: 50%;
+  max-width: none;
+  min-width: 0;
+  height: 100%;
+}
+
+.preview-panel {
+  width: 50%;
+  max-width: none;
+  min-width: 0;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .mainpage-bg {
+    padding: 10px;
+  }
+  .main-layout {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    gap: 1.2rem;
+    padding: 0;
+    align-items: stretch;
+    justify-content: flex-start;
+    max-width: none;
+    max-height: none;
+  }
+  .terminal-panel, .preview-panel {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 50vh;
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mainpage-bg {
+    padding: 0;
+  }
+  .main-layout {
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    gap: 0.5rem;
+    padding: 0.5rem 0 2.5rem 0;
+    align-items: stretch;
+    justify-content: flex-start;
+    max-width: 100vw;
+    max-height: none;
+  }
+  .terminal-panel {
+    width: 100vw !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    border-radius: 0 0 18px 18px;
+    min-height: 220px;
+    height: 45vh;
+    box-shadow: 0 2px 24px #00ff1444, 0 2px 16px #000a;
+  }
+  .preview-panel {
+    width: 100vw !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    border-radius: 18px 18px 0 0;
+    margin-top: 0.5rem;
+    min-height: 60px;
+    max-height: 60vh;
+    height: 45vh;
+    transition: max-height 0.4s cubic-bezier(.36,.07,.19,.97);
+    overflow: hidden;
+    box-shadow: 0 2px 24px #00ff1444, 0 2px 16px #000a;
+  }
+  .preview-panel.expanded {
+    max-height: 90vh;
+    height: 90vh;
+    transition: max-height 0.4s cubic-bezier(.36,.07,.19,.97);
+  }
+  .preview-header {
+    cursor: pointer;
+    user-select: none;
+    background: #18181a;
+    border-radius: 18px 18px 0 0;
+    font-size: 1.1rem;
+    padding: 1rem 1.2rem;
+  }
+}
